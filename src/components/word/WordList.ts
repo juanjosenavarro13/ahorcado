@@ -2,7 +2,8 @@ const WordList: Array<string> = ['a', 'aaronita', 'aarónico', 'aba', 'ababa', '
 
 function getWord(): Readonly<string> {
 
-  return WordList[Math.floor(Math.random() * WordList.length)];
+  return WordList[Math.floor(Math.random() * WordList.length)].normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  // return WordList[Math.floor(Math.random() * WordList.length)];
 }
 
 export default getWord;

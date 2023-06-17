@@ -1,5 +1,5 @@
 import { Button, TextField } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Input.scss';
 
 const KEY_ENTER = 'Enter';
@@ -11,12 +11,18 @@ export const Input = (props: Props) => {
     const [value, setValue] = useState<string>('');
     const { onEmitValue } = props;
 
+    useEffect(() => {
+        // focus on input
+        const input = document.getElementById('outlined-basic');
+        input?.focus();
+    }, [value]);
+
     const handleClick = () => {
         onEmitValue(value);
         setValue('');
     };
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const regex = /^[a-z]+$/;
+        const regex = /^[a-zñ]+$/;
         if (!regex.test(e.target.value)) return;
 
         if (e.target.value.length > 1) {

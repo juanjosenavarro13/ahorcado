@@ -18,7 +18,7 @@ function App() {
     const onEmitValue = (value: string): void => {
         console.log(wordSecret);
         if (fails === 5) {
-            alert('Pierdes... reiniciando el juego.');
+            alert(`Pierdes... reiniciando el juego. la palabra era ${wordSecret}`);
             resetGame();
             return;
         }
@@ -53,9 +53,9 @@ function App() {
                     <Divider className='divider' variant='fullWidth' />
                     <Word wordSecret={wordSecret} writeLetters={writeLetter} winGame={winGame} />
                 </div>
-
                 <Input onEmitValue={onEmitValue} />
             </Paper>
+            <p>By: Juan josé navarro</p>
         </Container>
     );
 }
