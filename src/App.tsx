@@ -1,4 +1,4 @@
-import { Chip, Container, Paper } from '@mui/material';
+import { Chip, Container, Divider, Paper } from '@mui/material';
 import { useEffect, useState } from 'react';
 import './App.scss';
 import Input from './components/input/Input';
@@ -50,6 +50,7 @@ function App() {
                 <div>
                     Letras Escritas:
                     {writeLetter && writeLetter.length > 0 && <Chip label={writeLetter} variant='outlined' />}
+                    <Divider className='divider' variant='fullWidth' />
                     <Word wordSecret={wordSecret} writeLetters={writeLetter} winGame={winGame} />
                 </div>
 

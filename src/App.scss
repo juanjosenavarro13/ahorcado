@@ -6,6 +6,12 @@
         & div {
             margin-left: auto;
             margin-bottom: 10px;
+            justify-content: center;
+
+            & .divider {
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+            }
         }
     }
 }

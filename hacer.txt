@@ -1,0 +1,2 @@
+-machear las letras "SIN TILDES" al introducirlas
+- mostrar alert https://mui.com/material-ui/react-snackbar/ cuando gana o reinicia el juego

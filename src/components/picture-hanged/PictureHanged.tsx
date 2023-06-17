@@ -7,7 +7,7 @@ export const PictureHanged = (props: Props) => {
 
     const urlImg = `../images/hanged/${fails > 5 ? '5' : fails}.webp`;
 
-    return <img src={urlImg} alt='Picture Hanged' />;
+    return <img src={urlImg} alt='Picture Hanged' width='100%' />;
 };
 
 export default PictureHanged;
