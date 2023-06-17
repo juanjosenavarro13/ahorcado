@@ -1,8 +1,10 @@
+import { Chip, Container, Paper } from '@mui/material';
 import { useEffect, useState } from 'react';
+import './App.scss';
+import Input from './components/input/Input';
 import PictureHanged from './components/picture-hanged/PictureHanged';
 import Word from './components/word/Word';
 import getWord from './components/word/WordList';
-import Input from './components/input/Input';
 
 function App() {
     const [fails, setFails] = useState<number>(0);
@@ -41,13 +43,18 @@ function App() {
     };
 
     return (
-        <>
-            <h1 className='text-3xl font-bold underline text-red-600'>Simple React Typescript Tailwind Sample</h1>
-            <PictureHanged fails={fails} />
-            <p>Letras Escritas: {writeLetter}</p>
-            <Word wordSecret={wordSecret} writeLetters={writeLetter} winGame={winGame} />
-            <Input onEmitValue={onEmitValue} />
-        </>
+        <Container maxWidth='sm' className='container'>
+            <Paper elevation={3} className='paper'>
+                <PictureHanged fails={fails} />
+                <p>
+                    Letras Escritas:
+                    {writeLetter && writeLetter.length > 0 && <Chip label={writeLetter} variant='outlined' />}
+                </p>
+
+                <Word wordSecret={wordSecret} writeLetters={writeLetter} winGame={winGame} />
+                <Input onEmitValue={onEmitValue} />
+            </Paper>
+        </Container>
     );
 }
 

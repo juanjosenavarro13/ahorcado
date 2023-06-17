@@ -1,0 +1,13 @@
+.container {
+    & .paper {
+        padding: 100px;
+        margin: 20px;
+
+        & p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+

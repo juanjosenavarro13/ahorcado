@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { Chip } from '@mui/material';
 import { useEffect, useState } from 'react';
 
 type Props = {
@@ -29,7 +30,7 @@ export const Word = (props: Props) => {
 
     return (
         <>
-            <p>Palabra descubierta: {value}</p>
+            <p>Palabra descubierta: {value && value.length > 0 && <Chip label={value} />}</p>
         </>
     );
 };

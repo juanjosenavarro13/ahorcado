@@ -1,4 +1,6 @@
+import { Button, TextField } from '@mui/material';
 import { useState } from 'react';
+import './Input.scss';
 
 const KEY_ENTER = 'Enter';
 
@@ -14,7 +16,15 @@ export const Input = (props: Props) => {
         setValue('');
     };
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(e.target.value);
+        const regex = /^[a-z]+$/;
+        if (!regex.test(e.target.value)) return;
+
+        if (e.target.value.length > 1) {
+            const lastValue = e.target.value.split('')[e.target.value.split('').length - 1];
+            setValue(lastValue);
+        } else {
+            setValue(e.target.value);
+        }
     };
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
@@ -22,11 +32,11 @@ export const Input = (props: Props) => {
     };
 
     return (
-        <div onKeyDown={handleKeyDown}>
-            <input type='text' maxLength={1} value={value} onChange={handleChange} />
-            <button type='button' onClick={handleClick}>
+        <div onKeyDown={handleKeyDown} className='containerInput'>
+            <TextField id='outlined-basic' label='Letra' variant='outlined' value={value} onChange={handleChange} />
+            <Button variant='contained' onClick={handleClick}>
                 Enviar
-            </button>
+            </Button>
         </div>
     );
 };
