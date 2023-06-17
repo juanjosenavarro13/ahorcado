@@ -5,7 +5,9 @@ type Props = {
 export const PictureHanged = (props: Props) => {
     const { fails = 0 } = props;
 
-    return <img src={`src/assets/hanged/${fails > 5 ? '5' : fails}.webp`} alt='Picture Hanged' />;
+    const urlImg = `../images/hanged/${fails > 5 ? '5' : fails}.webp`;
+
+    return <img src={urlImg} alt='Picture Hanged' />;
 };
 
 export default PictureHanged;
