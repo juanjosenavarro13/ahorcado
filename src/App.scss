@@ -3,10 +3,9 @@
         padding: 100px;
         margin: 20px;
 
-        & p {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        & div {
+            margin-left: auto;
+            margin-bottom: 10px;
         }
     }
 }

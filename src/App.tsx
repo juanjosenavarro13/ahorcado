@@ -16,6 +16,7 @@ function App() {
     }, []);
 
     const onEmitValue = (value: string): void => {
+        console.log(wordSecret);
         if (fails === 5) {
             alert('Pierdes... reiniciando el juego.');
             resetGame();
@@ -46,12 +47,12 @@ function App() {
         <Container maxWidth='sm' className='container'>
             <Paper elevation={3} className='paper'>
                 <PictureHanged fails={fails} />
-                <p>
+                <div>
                     Letras Escritas:
                     {writeLetter && writeLetter.length > 0 && <Chip label={writeLetter} variant='outlined' />}
-                </p>
+                    <Word wordSecret={wordSecret} writeLetters={writeLetter} winGame={winGame} />
+                </div>
 
-                <Word wordSecret={wordSecret} writeLetters={writeLetter} winGame={winGame} />
                 <Input onEmitValue={onEmitValue} />
             </Paper>
         </Container>

@@ -28,11 +28,7 @@ export const Word = (props: Props) => {
         }
     };
 
-    return (
-        <>
-            <p>Palabra descubierta: {value && value.length > 0 && <Chip label={value} />}</p>
-        </>
-    );
+    return <div>Palabra descubierta: {value && value.length > 0 && <Chip label={value} />}</div>;
 };
 
 export default Word;
